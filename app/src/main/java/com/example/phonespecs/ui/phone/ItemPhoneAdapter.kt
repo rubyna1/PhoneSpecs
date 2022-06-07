@@ -25,10 +25,8 @@ val DIFF_UTILS = object : DiffUtil.ItemCallback<Phones>() {
 
 }
 
-class ItemPhoneDataAdapter(val context: Context, val listener: onItemCallbacks) :
-    PagedListAdapter<Phones, ItemPhoneDataAdapter.ItemPhoneDataViewHolder>(
-        DIFF_UTILS
-    ) {
+class ItemPhoneDataAdapter(val context: Context, private val listener: OnItemCallbacks) :
+    PagedListAdapter<Phones, ItemPhoneDataAdapter.ItemPhoneDataViewHolder>(DIFF_UTILS) {
     class ItemPhoneDataViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nameTextView: TextView = view.findViewById(R.id.item_phone_name_text_view)
         val imageView: ImageView = view.findViewById(R.id.item_phone_image_view)
@@ -52,7 +50,7 @@ class ItemPhoneDataAdapter(val context: Context, val listener: onItemCallbacks) 
         return ItemPhoneDataViewHolder(view)
     }
 
-    interface onItemCallbacks {
-        fun onItemClicked(phoneSlug:String)
+    interface OnItemCallbacks {
+        fun onItemClicked(phoneSlug: String)
     }
 }

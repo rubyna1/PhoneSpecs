@@ -19,7 +19,6 @@ class DetailsPageViewModel @Inject constructor(
     private val compositeDisposable: CompositeDisposable
 ) : AndroidViewModel(app) {
     val detailsResponse = MutableLiveData<SpecificationsModel>()
-    fun getPhoneDetailsById(id: Int) = detailsPageRepository.getPhoneDetailsById(id)
     fun getPhoneDetailsBySlug(slug: String) {
         compositeDisposable.add(
             detailsPageRepository.getPhoneDetailsBySlug(slug)

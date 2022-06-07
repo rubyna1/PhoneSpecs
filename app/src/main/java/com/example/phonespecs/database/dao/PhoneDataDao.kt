@@ -1,6 +1,5 @@
 package com.example.phonespecs.database.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -17,7 +16,4 @@ interface PhoneDataDao {
 
     @Query("SELECT COUNT(*) FROM tbl_phone")
     fun getTotalDataCount(): Int
-
-    @Query("SELECT *  FROM tbl_phone where id =:id")
-    fun getPhoneDetailsById(id: Int): LiveData<Phones>
 }

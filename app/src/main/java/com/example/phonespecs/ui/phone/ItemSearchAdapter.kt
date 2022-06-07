@@ -14,18 +14,15 @@ import com.example.phonespecs.entity.Phones
 
 class ItemSearchAdapter(
     val context: Context,
-    val listOfData: List<Phones>,
-    val listener: onItemCallbacks
+    private val listOfData: List<Phones>,
+    private val listener: OnItemCallbacks
 ) :
-    RecyclerView.Adapter<ItemSearchAdapter.ItemSearchDataViewHolder>(
-
-    ) {
+    RecyclerView.Adapter<ItemSearchAdapter.ItemSearchDataViewHolder>() {
     class ItemSearchDataViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nameTextView: TextView = view.findViewById(R.id.item_phone_name_text_view)
         val imageView: ImageView = view.findViewById(R.id.item_phone_image_view)
         val mainContainer: ConstraintLayout = view.findViewById(R.id.item_phone_main_view)
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemSearchDataViewHolder {
         val view =
@@ -33,12 +30,12 @@ class ItemSearchAdapter(
         return ItemSearchDataViewHolder(view)
     }
 
-    interface onItemCallbacks {
+    interface OnItemCallbacks {
         fun onItemClicked(phoneSlug: String)
     }
 
     override fun onBindViewHolder(
-        holder: ItemSearchAdapter.ItemSearchDataViewHolder,
+        holder: ItemSearchDataViewHolder,
         position: Int
     ) {
         val model = listOfData[position]

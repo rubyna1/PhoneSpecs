@@ -18,8 +18,8 @@ import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_phone_listing.*
 import javax.inject.Inject
 
-class PhoneListingFragment : DaggerFragment(), ItemPhoneDataAdapter.onItemCallbacks,
-    ItemSearchAdapter.onItemCallbacks {
+class PhoneListingFragment : DaggerFragment(), ItemPhoneDataAdapter.OnItemCallbacks,
+    ItemSearchAdapter.OnItemCallbacks {
     @Inject
     lateinit var phoneDataViewModel: PhoneDataViewModel
     private lateinit var adapter: ItemPhoneDataAdapter
@@ -56,8 +56,8 @@ class PhoneListingFragment : DaggerFragment(), ItemPhoneDataAdapter.onItemCallba
                 adapter.notifyDataSetChanged()
                 fragment_phone_listing_progress_bar.visibility = View.GONE
                 fragment_phone_listing_recycler_view.visibility = View.VISIBLE
-                fragment_phone_listing_search_recycler_view.visibility=View.GONE
-                fragment_phone_listing_error_view.visibility=View.GONE
+                fragment_phone_listing_search_recycler_view.visibility = View.GONE
+                fragment_phone_listing_error_view.visibility = View.GONE
             }
         })
         fragment_phone_listing_search_edit_text.setOnEditorActionListener(object :
@@ -69,7 +69,7 @@ class PhoneListingFragment : DaggerFragment(), ItemPhoneDataAdapter.onItemCallba
                     fragment_phone_listing_progress_bar.visibility = View.VISIBLE
                     fragment_phone_listing_back_image_view.visibility = View.VISIBLE
                     fragment_phone_listing_search_recycler_view.visibility = View.GONE
-                    fragment_phone_listing_error_view.visibility=View.GONE
+                    fragment_phone_listing_error_view.visibility = View.GONE
                     fragment_phone_listing_recycler_view.visibility = View.GONE
                     return true
                 }
@@ -83,7 +83,7 @@ class PhoneListingFragment : DaggerFragment(), ItemPhoneDataAdapter.onItemCallba
             fragment_phone_listing_recycler_view.visibility = View.VISIBLE
             fragment_phone_listing_back_image_view.visibility = View.GONE
             fragment_phone_listing_search_recycler_view.visibility = View.GONE
-            fragment_phone_listing_error_view.visibility=View.GONE
+            fragment_phone_listing_error_view.visibility = View.GONE
         }
         phoneDataViewModel.searchResponse.observe(viewLifecycleOwner, Observer {
             if (it.data != null && it.data!!.phones.isNotEmpty()) {
@@ -105,7 +105,6 @@ class PhoneListingFragment : DaggerFragment(), ItemPhoneDataAdapter.onItemCallba
             }
         })
     }
-
 
     fun hideSoftKeyboard() {
         try {

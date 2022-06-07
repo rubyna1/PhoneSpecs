@@ -43,7 +43,6 @@ class PhoneDataViewModel @Inject constructor(
                 } else {
                     pageKey
                 }
-                Log.i(TAG,"$pageKey $pageNo")
                 phoneDataRepository.getPhoneDate(pageNo).subscribeOn(
                     Schedulers.io()
                 ).observeOn(Schedulers.io()).subscribeBy(
@@ -60,7 +59,6 @@ class PhoneDataViewModel @Inject constructor(
 
         override fun onZeroItemsLoaded() {
             super.onZeroItemsLoaded()
-            CoroutineScope(Dispatchers.IO).launch {
                 phoneDataRepository.getPhoneDate(1).subscribeOn(
                     Schedulers.io()
                 ).observeOn(Schedulers.io()).subscribeBy(
@@ -71,7 +69,6 @@ class PhoneDataViewModel @Inject constructor(
                         Log.i(TAG, "this is the error ${it.message}")
                     }
                 )
-            }
         }
     }
 
