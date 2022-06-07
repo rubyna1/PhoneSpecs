@@ -70,6 +70,7 @@
                 android:id="@+id/fragment_detail_page_name_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/gray"
                 android:textSize="16sp" />
 
             <TextView
@@ -85,6 +86,7 @@
                 android:id="@+id/fragment_detail_page_release_date_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/gray"
                 android:textSize="16sp" />
 
             <TextView
@@ -100,6 +102,7 @@
                 android:id="@+id/fragment_detail_page_dimension_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/gray"
                 android:textSize="16sp" />
 
             <TextView
@@ -115,6 +118,7 @@
                 android:id="@+id/fragment_detail_page_os_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/gray"
                 android:textSize="16sp" />
 
             <TextView
@@ -130,6 +134,7 @@
                 android:id="@+id/fragment_detail_page_storage_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/gray"
                 android:textSize="16sp" />
         </LinearLayout>
 
